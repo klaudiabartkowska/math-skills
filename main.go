@@ -22,7 +22,7 @@ func avarage(nums []int) float64 {
 	return (total)
 }
 
-func median(nums []int) int {
+func median(nums []int) int{
 
 	sort.Ints(nums)
 	numbers := len(nums)
@@ -34,14 +34,14 @@ func median(nums []int) int {
 	} else if numbers%2 == 0 {
 		median = numbers / 2
 		median -= 1
-		sum := nums[median] + nums[median+1]
-		return sum / 2
+		sum := float64(nums[median]) + float64(nums[median+1])
+		return int(math.Round(sum/2))
 	} else {
 		return nums[len(nums)/2]
 	}
 }
 
-func variance(nums []int) float64 {
+func variance(nums []int) int {
 
 	var dev []float64
 	var res float64
@@ -62,30 +62,31 @@ func variance(nums []int) float64 {
 		res = math.Pow(dev[i], 2)
 		sq = append(sq, res)
 	}
+   
+	fmt.Println(sq)
 
 	//	find the sum of squares
-	sum = 0
+	sum = 0.0
 
 	for i := 0; i < len(sq); i++ {
 		sum += sq[i]
 	}
 
 	//divide the sum of squares by lenght of array of numbers -1
-	numI := len(nums) - 1
-	s := sum / float64(numI)
-	
-	return s
+	r := sum / float64(len(nums))
+
+	return int(math.Round(r))
 	}
 
-func standardDeviation(nums []int) float64 {
+func standardDeviation(nums []int) int  {
 
 	// find the variance
 	v := variance(nums)
 
 	//find the square root of the variance
-	res := math.Sqrt(v)
+	res := math.Sqrt(float64(v))
 
-	return res
+	return int(math.Round(res))
 
 }
 
@@ -127,7 +128,7 @@ func main() {
 	
 	fmt.Println("Avarage:", math.Round(a))
 	fmt.Println("Median:", (m))
-	fmt.Println("Variance:", math.Round(v))
-	fmt.Println("Standard Deviation:", math.Round(s))
+	fmt.Println("Variance:",int(v))
+	fmt.Println("Standard Deviation:",(s))
 
 }
