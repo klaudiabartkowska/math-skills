@@ -125,9 +125,9 @@ func main() {
 	v := variance(file)
 	s := standardDeviation(file)
 	
-	fmt.Println("Avarage:", int(a))
-	fmt.Println("Median:", int(m))
-	fmt.Println("Variance:", int(v))
-	fmt.Println("Standard Deviation:", int(s))
+	fmt.Println("Avarage:", math.Round(a))
+	fmt.Println("Median:", (m))
+	fmt.Println("Variance:", math.Round(v))
+	fmt.Println("Standard Deviation:", math.Round(s))
 
 }
